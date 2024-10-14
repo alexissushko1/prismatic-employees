@@ -1,0 +1,70 @@
+@port=3000
+@host=http://localhost:{{port}}
+
+### GET /
+GET {{host}}
+
+### Get all employees
+
+GET {{host}}/employees
+
+### Add an employee
+
+POST {{host}}/employees
+Content-Type: application/json
+
+{
+  "name": "Jane Doe"
+}
+
+### Add an employee incorrectly
+
+POST {{host}}/employees
+Content-Type: application/json
+
+{
+  "name": "George David"
+}
+
+### Get employees with an id
+
+GET {{host}}/employees/3
+
+### Get employees with an incorrect id
+
+GET {{host}}/employees/50
+
+### Update employee with specific  id
+
+PUT {{host}}/employees/4
+Content-Type: application/json
+
+{
+  "name": "Up to date"
+}
+
+### Update nonexistent employee with specific  id
+
+PUT {{host}}/employees/5
+Content-Type: application/json
+
+{
+  "name": "Not up to date"
+}
+
+### Incorrectly uppdate employee with specific  id
+
+PUT {{host}}/employees/5
+Content-Type: application/json
+
+{
+  "name": "Updated wrong"
+}
+
+### Delete existent employee
+
+DELETE {{host}}/employees/6
+
+### Delete nonexistent employee
+
+DELETE {{host}}/employees/20
